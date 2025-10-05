@@ -1,5 +1,5 @@
 const baseClass =
-    "py-2.5 me-2 mb-2 flex-1 min-w-[140px] text-sm rounded-2xl border border-transparent ";
+    "py-2.5 me-2 mb-2 flex-1 min-w-[140px] text-sm rounded-2xl border border-transparent hover:-translate-y-2 ";
 
 export default [
     {

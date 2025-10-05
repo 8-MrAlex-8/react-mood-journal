@@ -10,9 +10,9 @@ button:not(.sub-btn) {
   outline: none;
 }
 
-button:not(.sub-btn):hover {
+button:not(.sub-btn):hover,
+button:not(.selected):hover {
   color: #fff;
-  transform: translateY(-7px);
 }
 
 button:active {
