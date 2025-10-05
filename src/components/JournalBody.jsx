@@ -23,7 +23,7 @@ const JournalBody = () => {
             : "bg-white")
         }
       >
-        <MoodBar setEmotion={setEmotion} />
+        <MoodBar setEmotion={setEmotion} emotion={emotion} />
         {/* Where the state will change */}
 
         <TextAreaGroup emotion={emotion} />

@@ -2,7 +2,7 @@ import { useState } from "react";
 import buttonData from "../dataShelf/buttonData.js";
 import MoodButton from "./MoodButton";
 
-const MoodBar = ({ setEmotion }) => {
+const MoodBar = ({ emotion, setEmotion }) => {
   return (
     <div className="w-[90%] pt-3 flex flex-wrap items-center gap-2 overflow-x-auto">
       {buttonData.map((button) => {
@@ -15,6 +15,7 @@ const MoodBar = ({ setEmotion }) => {
             onSelect={() => {
               setEmotion(button.emotion);
             }}
+            isSelected={emotion === button.emotion}
           />
         );
       })}

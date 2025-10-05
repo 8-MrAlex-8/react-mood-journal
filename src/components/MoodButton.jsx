@@ -19,7 +19,7 @@ const MoodButton = (props) => {
           props.onSelect();
         }}
       >
-        {text}
+        {props.isSelected ? props.emoticon : text}
       </button>
     </>
   );

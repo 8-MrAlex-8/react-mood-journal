@@ -12,7 +12,7 @@ export default [
         id: 2,
         emotion: "Sad",
         emoticon: "(╥﹏╥)",
-        colorClass: baseClass + "bg-blue-200 hover:bg-blue-800 hover:shadow-[0px_15px_20px_rgba(191,219,254,1)]",
+        colorClass: baseClass + "bg-blue-300 hover:bg-blue-800 hover:shadow-[0px_15px_20px_rgba(191,219,254,1)]",
     },
     {
         id: 3,
@@ -24,12 +24,12 @@ export default [
         id: 4,
         emotion: "Anxious",
         emoticon: "(•́ ᴖ •̀ )",
-        colorClass: baseClass + "bg-purple-200 hover:bg-purple-700 hover:shadow-[0px_15px_20px_rgba(196,181,253,1)]",
+        colorClass: baseClass + "bg-purple-300 hover:bg-purple-700 hover:shadow-[0px_15px_20px_rgba(196,181,253,1)]",
     },
     {
         id: 5,
         emotion: "Excited",
         emoticon: "( >ᗜ<)",
-        colorClass: baseClass + "bg-green-200 hover:bg-green-700 hover:shadow-[0px_15px_20px_rgba(167,243,208,1)]",
+        colorClass: baseClass + "bg-green-300 hover:bg-green-700 hover:shadow-[0px_15px_20px_rgba(167,243,208,1)]",
     },
 ];
