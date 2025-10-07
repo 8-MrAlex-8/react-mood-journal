@@ -4,9 +4,24 @@ import journalPrompt from "../dataShelf/journalPrompts";
 const TextAreaGroup = ({ emotion }) => {
   function handleSubmit(event) {
     event.preventDefault(); // prevent page refresh
-    const getJournalEntryId = crypto.randomUUID();
-    const getTextAreaData = new FormData(event.currentTarget); // get form data
-    console.log(getJournalEntryId, getTextAreaData);
+    const getJournalEntryId = crypto.randomUUID(); // create journalEntryID upon submisison
+
+    const formData = new FormData(event.currentTarget); // get all form data
+
+    // Extract individual fields
+    const getJournalTitle = formData.get("journal-title");
+    const getJournalBody = formData.get("journal-body");
+
+    // Create JSON object
+    const journalEntry = {
+      id: getJournalEntryId,
+      title: getJournalTitle,
+      body: getJournalBody,
+      emotion: emotion, // optional: save the selected emotion too
+      date: new Date().toISOString(), // optional: auto-add timestamp
+    };
+    const journalJSON = JSON.stringify(journalEntry);
+    console.log(journalJSON);
   }
 
   return (
@@ -14,8 +29,28 @@ const TextAreaGroup = ({ emotion }) => {
       className="flex flex-col items-center gap-3 m-0 p-0 w-full"
       onSubmit={handleSubmit}
     >
+      <input
+        className={`h-[8dvh] border w-[90%] border-gray-400 rounded-lg p-3 
+      ${
+        emotion === "Happy"
+          ? "bg-gradient-to-r from-slate-50 to-yellow-100 cursor-text"
+          : emotion === "Sad"
+          ? "bg-gradient-to-r from-slate-50 to-blue-100 cursor-text"
+          : emotion === "Angry"
+          ? "bg-gradient-to-r from-slate-50 to-red-100 cursor-text"
+          : emotion === "Anxious"
+          ? "bg-gradient-to-r from-slate-50 to-purple-100 cursor-text"
+          : emotion === "Excited"
+          ? "bg-gradient-to-r from-slate-50 to-green-100 cursor-text"
+          : "bg-white cursor-not-allowed opacity-50"
+      }`}
+        disabled={!emotion}
+        placeholder="Title"
+        id="journal-title"
+        name="journal-title"
+      ></input>
       <textarea
-        className={`h-[42dvh] border w-[90%] border-gray-400 rounded-lg p-3 
+        className={`h-[34dvh] border w-[90%] border-gray-400 rounded-lg p-3 
           ${
             emotion === "Happy"
               ? "bg-gradient-to-r from-slate-50 to-yellow-100 cursor-text"
