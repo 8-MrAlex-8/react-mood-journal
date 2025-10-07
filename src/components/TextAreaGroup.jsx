@@ -22,7 +22,7 @@ const TextAreaGroup = ({ emotion }) => {
         placeholder={"What's on your mind?"}
       ></textarea>
       <div className="w-[90%] flex justify-end items-center">
-        <button className="sub-btn bg-blue-700 text-white p-2 md:w-1/8 rounded-md">
+        <button className="sub-btn bg-indigo-500 hover:bg-indigo-700 text-white p-2 md:w-1/8 rounded-md ">
           Submit
         </button>
       </div>
