@@ -2,7 +2,7 @@ import { useState } from "react";
 import MoodBar from "./MoodBar";
 import TextAreaGroup from "./TextAreaGroup";
 
-const JournalBody = () => {
+const JournalBody = ({ setEntries }) => {
   const [emotion, setEmotion] = useState(null);
 
   return (
@@ -26,7 +26,7 @@ const JournalBody = () => {
         <MoodBar setEmotion={setEmotion} emotion={emotion} />
         {/* Where the state will change */}
 
-        <TextAreaGroup emotion={emotion} />
+        <TextAreaGroup emotion={emotion} setEntries={setEntries} />
         {/* Only needs to read the state value */}
       </div>
     </>

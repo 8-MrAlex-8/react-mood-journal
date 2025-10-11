@@ -1,13 +1,12 @@
 // import {ArrowRight} from "lucide-react";
 import journalPrompt from "../dataShelf/journalPrompts";
 
-const TextAreaGroup = ({ emotion }) => {
+const TextAreaGroup = ({ emotion, setEntries }) => {
   function handleSubmit(event) {
     event.preventDefault(); // prevent page refresh
+
     const getJournalEntryId = crypto.randomUUID(); // create journalEntryID upon submisison
-
     const formData = new FormData(event.currentTarget); // get all form data
-
     // Extract individual fields
     const getJournalTitle = formData.get("journal-title");
     const getJournalBody = formData.get("journal-body");
@@ -20,8 +19,11 @@ const TextAreaGroup = ({ emotion }) => {
       emotion: emotion, // optional: save the selected emotion too
       date: new Date().toISOString(), // optional: auto-add timestamp
     };
-    const journalJSON = JSON.stringify(journalEntry);
-    console.log(journalJSON);
+    // Add the new entry to the beginning of the list
+    setEntries((prev = []) => [journalEntry, ...prev]);
+
+    // Reset the form (since inputs are uncontrolled here)
+    event.currentTarget.reset();
   }
 
   return (
