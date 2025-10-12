@@ -10,8 +10,8 @@ function App() {
   useEffect(() => {
     const savedEntries =
       JSON.parse(localStorage.getItem("journalEntries")) || [];
-    setEntries(saved);
-  });
+    setEntries(savedEntries);
+  }, []);
 
   // Save to localStorage whenever entries change
   useEffect(() => {

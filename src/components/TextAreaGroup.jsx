@@ -4,7 +4,6 @@ import journalPrompt from "../dataShelf/journalPrompts";
 const TextAreaGroup = ({ emotion, setEntries }) => {
   function handleSubmit(event) {
     event.preventDefault(); // prevent page refresh
-
     const getJournalEntryId = crypto.randomUUID(); // create journalEntryID upon submisison
     const formData = new FormData(event.currentTarget); // get all form data
     // Extract individual fields
@@ -20,7 +19,11 @@ const TextAreaGroup = ({ emotion, setEntries }) => {
       date: new Date().toISOString(), // optional: auto-add timestamp
     };
     // Add the new entry to the beginning of the list
-    setEntries((prev = []) => [journalEntry, ...prev]);
+    setEntries((prev = []) => {
+      const updated = [journalEntry, ...prev];
+      localStorage.setItem("journalEntries", JSON.stringify(updated));
+      return updated;
+    });
 
     // Reset the form (since inputs are uncontrolled here)
     event.currentTarget.reset();
