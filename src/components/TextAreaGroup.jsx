@@ -11,7 +11,9 @@ const TextAreaGroup = ({ emotion, setEntries }) => {
 
     // Validate that both title and body are not empty
     if (!getJournalTitle && !getJournalBody) {
-      alert("Please enter a title and journal entry before submitting.");
+      alert(
+        "Please select an emotion, then enter a title and journal entry before submitting."
+      );
       return;
     }
     if (!getJournalTitle) {
