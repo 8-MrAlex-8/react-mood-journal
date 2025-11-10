@@ -5,7 +5,7 @@ const JournalList = ({ entries = [], setEntries }) => {
   };
 
   return (
-    <section className="hidden lg:block w-1/5 border border-gray-300 rounded-lg p-4 overflow-y-auto h-full">
+    <section className="block w-4/4 md:w-1/5 border border-gray-300 rounded-lg p-4 overflow-y-auto h-full">
       <h2 className="font-bold text-lg mb-3">My Journal Entries</h2>
       {entries.length === 0 ? (
         <p className="text-gray-600 text-sm">No entries yet.</p>
