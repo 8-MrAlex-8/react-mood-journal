@@ -10,6 +10,15 @@ button:not(.sub-btn) {
   outline: none;
 }
 
+button.del-btn {
+  padding: 0.1rem;
+}
+
 button:not(.selected):hover {
   color: #fff;
+}
+
+body {
+  font-family: "Elms Sans", sans-serif;
+  font-weight: 600;
 }

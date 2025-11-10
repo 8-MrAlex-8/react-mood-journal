@@ -4,12 +4,26 @@ import journalPrompt from "../dataShelf/journalPrompts";
 const TextAreaGroup = ({ emotion, setEntries }) => {
   function handleSubmit(event) {
     event.preventDefault(); // prevent page refresh
-    const getJournalEntryId = crypto.randomUUID(); // create journalEntryID upon submisison
     const formData = new FormData(event.currentTarget); // get all form data
     // Extract individual fields
-    const getJournalTitle = formData.get("journal-title");
-    const getJournalBody = formData.get("journal-body");
+    const getJournalTitle = formData.get("journal-title")?.trim() || "";
+    const getJournalBody = formData.get("journal-body")?.trim() || "";
 
+    // Validate that both title and body are not empty
+    if (!getJournalTitle && !getJournalBody) {
+      alert("Please enter a title and journal entry before submitting.");
+      return;
+    }
+    if (!getJournalTitle) {
+      alert("Please enter a title for your journal entry.");
+      return;
+    }
+    if (!getJournalBody) {
+      alert("Please write something in your journal entry.");
+      return;
+    }
+
+    const getJournalEntryId = crypto.randomUUID(); // create journalEntryID upon submission
     // Create JSON object
     const journalEntry = {
       id: getJournalEntryId,
@@ -53,6 +67,7 @@ const TextAreaGroup = ({ emotion, setEntries }) => {
         placeholder="Title"
         id="journal-title"
         name="journal-title"
+        required
       ></input>
       <textarea
         className={`h-[34dvh] border w-[90%] border-gray-400 rounded-lg p-3 
@@ -75,6 +90,7 @@ const TextAreaGroup = ({ emotion, setEntries }) => {
         id="journal-body"
         name="journal-body"
         disabled={!emotion}
+        required
       ></textarea>
       <div className="w-[90%] flex justify-end items-center">
         <button

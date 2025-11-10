@@ -9,7 +9,7 @@ const JournalBody = ({ setEntries }) => {
     <>
       <div
         className={
-          "md:min-h-[70dvh] md:max-h-[80dvh] flex flex-col justify-center items-center gap-3 p-4 transition-all " +
+          "md:min-h-[70dvh] md:max-h-[80dvh] flex flex-col justify-center items-center gap-3 p-4 mb-4 border-b border-gray-200 transition-all " +
           (emotion === "Happy"
             ? "bg-yellow-100"
             : emotion === "Sad"

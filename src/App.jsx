@@ -19,13 +19,13 @@ function App() {
   }, [entries]);
 
   return (
-    <>
+    <div className="md:h-[100dvh] flex flex-col overflow-hidden">
       <TopNav />
-      <main className="w-screen h-[90dvh] flex flex-row justify-center items-center p-3">
+      <main className="w-screen flex-1 flex flex-col md:flex-row justify-center items-center p-3 overflow-hidden md:min-h-0">
         <JournalSection setEntries={setEntries} />
         <JournalList entries={entries} setEntries={setEntries} />
       </main>
-    </>
+    </div>
   );
 }
 

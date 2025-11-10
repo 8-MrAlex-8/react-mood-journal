@@ -3,7 +3,7 @@ import ViteLogo from "../assets/vite.svg";
 
 const TopNav = () => {
   return (
-    <nav className="w-screen bg-black h-[10vh] flex justify-center items-center gap-8">
+    <nav className="w-screen bg-black h-[10dvh] md:h-[10dvh] flex justify-center items-center gap-8 flex-shrink-0">
       <img
         src={ViteLogo}
         alt="Vite Logo"
